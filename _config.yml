@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Jia-Peng Guo"
+title                    : "About Me"
 title_separator          : "-"
 name                     : &name "Jia-Peng Guo"
 description              : &description ""
@@ -21,7 +21,7 @@ repository               : "mangoleaves/mangoleaves.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"
+  avatar           : "profile.png"
   name             : "Jia-Peng Guo"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. Student in Computer Graphics"
@@ -228,12 +228,12 @@ defaults:
   #     share: true
   #     related: true
   # _pages
-  # - scope:
-  #     path: ""
-  #     type: pages
-  #   values:
-  #     layout: single
-  #     author_profile: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
   # _teaching
   # - scope:
   #     path: ""
@@ -287,16 +287,16 @@ timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database
 # Plugins
 plugins:
   - jekyll-paginate
-  - jekyll-sitemap
+  # - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
+  # - jekyll-feed
   - jekyll-redirect-from
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
-  - jekyll-sitemap
+  # - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
+  # - jekyll-feed
   - jemoji
 
 
