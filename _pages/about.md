@@ -5,6 +5,12 @@ author_profile: true
 redirect_from: 
   - /about/
   - /about.html
+  - /cv/
+  - /cv
+  - /cv.html
+  - /publications
+  - /publications/
+  - /publications.html
 ---
 
 ## Jia-Peng Guo (郭佳鹏)
