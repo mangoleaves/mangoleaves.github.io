@@ -21,7 +21,7 @@ repository               : "mangoleaves/mangoleaves.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "gjp.png"
+  avatar           : "gjp_2024_clip.png"
   name             : "Jia-Peng Guo"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. Student in Computer Graphics"
@@ -244,14 +244,14 @@ defaults:
   #     share: true
   #     comments: true
   # _publications
-  - scope:
-      path: ""
-      type: publications
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
+  # - scope:
+  #     path: ""
+  #     type: publications
+  #   values:
+  #     layout: single
+  #     author_profile: true
+  #     share: true
+  #     comments: true
   # _portfolio
   # - scope:
   #     path: ""
