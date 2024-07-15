@@ -37,12 +37,12 @@ CAD/CAE
 ### 2024
 
 **Smooth Bijective Projection in a High-order Shell**  
-Shibo Liu, Yang Ji, **[Jia-Peng Guo](https://mangoleaves.github.io)**, [Ligang Liu](http://staff.ustc.edu.cn/~lgliu/), [Xiao-Ming Fu](https://ustc-gcl-f.github.io/)  
+[Shibo Liu](https://liu43.github.io/), Yang Ji, **[Jia-Peng Guo](https://mangoleaves.github.io)**, [Ligang Liu](http://staff.ustc.edu.cn/~lgliu/), [Xiao-Ming Fu](https://ustc-gcl-f.github.io/)  
 *ACM Transactions on Graphics (SIGGRAPH)*, 43(4), 2023.  
 [Project Page](https://ustc-gcl-f.github.io/projects/CurveShell/CurveShell.html).
 
 **Evolutionary Multi-objective High-order Tetrahedral Mesh Optimization**  
-Yang Ji, Shibo Liu, **[Jia-Peng Guo](https://mangoleaves.github.io)**, [Jian-Ping Su](https://jianpingsu.github.io/), [Xiao-Ming Fu](https://ustc-gcl-f.github.io/)  
+Yang Ji, [Shibo Liu](https://liu43.github.io/), **[Jia-Peng Guo](https://mangoleaves.github.io)**, [Jian-Ping Su](https://jianpingsu.github.io/), [Xiao-Ming Fu](https://ustc-gcl-f.github.io/)  
 *Computer-Aided Geometric Design (GMP)*, 2024.  
 [DOI](https://doi.org/10.1016/j.cagd.2024.102302).
 
