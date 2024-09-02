@@ -1,0 +1,155 @@
+---
+layout: default
+---
+
+{% include base_path %}
+{% include mathjax.html %}
+
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+{% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+{% unless paginator %}
+{% include breadcrumbs.html %}
+{% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if page.title %}
+    <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+    {% endif %}
+    {% if page.excerpt %}
+    <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
+    {% endif %}
+    {% if page.date %}
+    <meta itemprop="datePublished" content="{{ page.date | date: " %B %d, %Y" }}">
+    {% endif %}
+    {% if page.modified %}
+    <meta itemprop="dateModified" content="{{ page.modified | date: " %B %d, %Y" }}">
+    {% endif %}
+
+    <div class="page__inner-wrap">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+      <header>
+        <!-- title -->
+        {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" |
+            remove: "</p>" }}</h1>{% endif %}
+        <!-- authors -->
+        {% if page.authors %}
+        <p style="text-align: left;">
+          {% for author in page.authors %}
+          {% if author.url %}
+          <a href="{{ author.url }}">{{ author.name }}</a> {% if forloop.last == false %}, {% endif %}
+          {% else %}
+          {{ author.name }} {% if forloop.last == false %}, {% endif %}
+          {% endif %}
+          {% endfor %}
+        </p>
+        {% endif %}
+
+        <!-- Affiliatition -->
+        {% if page.affiliations %}
+        <p style="text-align: left;">
+          {% for aff in page.affiliations %}
+          {% if aff.url %}
+          <a href="{{ aff.url }}">{{ aff.name }}</a> {% if forloop.last == false %}, {% endif %}
+          {% else %}
+          {{ aff.name }} {% if forloop.last == false %}, {% endif %}
+          {% endif %}
+          {% endfor %}
+        </p>
+        {% endif %}
+
+        <!-- venue -->
+        {% if page.collection == 'teaching' %}
+        <p>
+          <!-- teaching -->
+          {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }}
+        </p>
+        {% elsif page.venue and page.date %}
+        <p>
+          <!-- publicatition -->
+          <i>{{ page.venue }}</i>
+          {% if page.issue %}, {% endif %}
+          {{ page.issue | default: "" }}
+          {% if page.date %}, {% endif %}
+          {{ page.date | default: "1900-01-01" | date: "%Y" }}
+        </p>
+        {% elsif page.date %}
+        <p class="page__date">
+          <!-- other -->
+          <strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>
+            {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong>
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}
+          </time>
+        </p>
+        {% endif %}
+
+      </header>
+      {% endunless %}
+
+      <!-- teaser -->
+      <hr>
+      {% if page.teaser %}
+
+      {% if page.teaser.long %}
+      <div style="text-align: left;">
+        <img src="{{ page.teaser.image }}" alt="Teaser" style="width: 100%; display: block; margin: 0 auto;">
+        <p>{{ page.teaser.caption }}</p>
+      </div>
+      {% else %}
+      <div class="teaser-container">
+        <img src="{{ page.teaser.image }}" alt="Teaser" class="teaser-image">
+        <p class="teaser-caption">{{ page.teaser.caption }}</p>
+      </div>
+      {% endif %} <!-- endif page.teaser.long -->
+
+      <hr>
+      {% endif %} <!-- endif page.teaser -->
+
+
+      <section class="page__content" itemprop="text">
+
+        <!-- main content -->
+        {{ content }}
+
+      </section>
+
+      <footer class="page__meta">
+        {% if site.data.ui-text[site.locale].meta_label %}
+        <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+        {% endif %}
+        {% include page__taxonomy.html %}
+      </footer>
+
+      {% if page.share %}{% include social-share.html %}{% endif %}
+
+      {% include post_pagination.html %}
+    </div>
+
+    {% if site.comments.provider and page.comments %}
+    {% include comments.html %}
+    {% endif %}
+  </article>
+
+  {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
+  {% if page.id and page.related and site.related_posts.size > 0 %}
+  <div class="page__related">
+    {% if site.data.ui-text[site.locale].related_label %}
+    <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}
+    </h4>
+    {% endif %}
+    <div class="grid__wrapper">
+      {% for post in site.related_posts limit:4 %}
+      {% include archive-single.html type="grid" %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>

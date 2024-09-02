@@ -1,0 +1,75 @@
+/***************************************
+                Teaser
+***************************************/
+
+/* 默认情况下，teaser 图片和文字并排展示 */
+.teaser-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: justify;
+}
+
+.teaser-image {
+  width: 50%;
+  margin-right: 20px;
+}
+
+.teaser-caption {
+  width: 50%;
+}
+
+/* 在窄屏下，将文字移动到图片下方 */
+@media (max-width: 768px) {
+  .teaser-container {
+    display: block;
+    text-align: justify;
+  }
+
+  .teaser-image,
+  .teaser-caption {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .teaser-caption {
+    margin-top: 10px;
+    /* 调整文字与图片之间的间距 */
+  }
+}
+
+/***************************************
+              Right image
+***************************************/
+
+/* 默认情况下，图片和文字并排展示，图片在右侧 */
+.right-image-container {
+  margin: 0;
+}
+
+figure.right-image {
+  float: right;
+  width: 50%;
+  margin: 0 0 1em 1em;
+}
+
+.right-image img {
+  width: 100%;
+  display: block;
+}
+
+.right-image figcaption {
+  text-align: justify;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* 在窄屏下，将图片移动到下方 */
+@media (max-width: 768px) {
+  figure.right-image {
+      float: none;
+      width: 100%;
+      margin: 1em 0;
+      /* 上下间距 */
+    }
+}
