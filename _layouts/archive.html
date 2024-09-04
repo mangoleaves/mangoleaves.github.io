@@ -31,7 +31,7 @@ layout: default
 
 <script>
   function copyToClipboard(event, text) {
-    // 创建一个临时的文本输入元素
+    /* 创建一个临时的文本输入元素 */
     var tempInput = document.createElement("input");
     tempInput.style.position = "absolute";
     tempInput.style.left = "-9999px";
@@ -40,35 +40,35 @@ layout: default
 
     console.log("copy content: " + text)
 
-    // 选择并复制内容
+    /* 选择并复制内容 */
     tempInput.select();
     document.execCommand("copy");
 
-    // 移除临时元素
+    /* 移除临时元素 */
     document.body.removeChild(tempInput);
 
-    // 显示提示信息
+    /* 显示提示信息 */
     showTooltip(event);
   }
 
   function showTooltip(event) {
     var tooltip = document.getElementById("copyTooltip");
 
-    // 获取 tooltip 的尺寸
+    /* 获取 tooltip 的尺寸 */
     var tooltipWidth = tooltip.offsetWidth;
     var tooltipHeight = tooltip.offsetHeight;
 
-    // 计算 tooltip 的位置
+    /* 计算 tooltip 的位置, 提示框在鼠标点击上方10px */
     var tooltipX = event.pageX - (tooltipWidth / 2);
-    var tooltipY = event.pageY - tooltipHeight - 10; // 提示框在鼠标点击上方10px
+    var tooltipY = event.pageY - tooltipHeight - 10;
 
-    // 设置 tooltip 的位置
+    /* 设置 tooltip 的位置 */
     tooltip.style.left = tooltipX + "px";
     tooltip.style.top = tooltipY + "px";
 
     tooltip.style.display = "block";
 
-    // 2秒后隐藏提示信息
+    /* 2秒后隐藏提示信息 */
     setTimeout(function () {
       tooltip.style.display = "none";
     }, 2000);
