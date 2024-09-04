@@ -23,10 +23,10 @@ sidebar:
   nav:
     - title: "Abstract"
       url: "/projects/mesh-arrangements/#abstract"
-    - title: "Motivation"
-      url: "/projects/mesh-arrangements/#motivation"
-    - title: "Methodology"
-      url: "/projects/mesh-arrangements/#methodology"
+    # - title: "Motivation"
+    #   url: "/projects/mesh-arrangements/#motivation"
+    # - title: "Methodology"
+    #   url: "/projects/mesh-arrangements/#methodology"
     - title: "Results"
       url: "/projects/mesh-arrangements/#results"
     - title: "Resources"
@@ -49,9 +49,7 @@ Rigorous testing confirms the robustness of our algorithm and consistency with p
 Comprehensive testing across diverse datasets further highlights the speed improvement achieved by our method, which is one order of magnitude faster than the state-of-the-art methods.
 </p>
 
-**CCS Concepts**: Computing methodologies, Shape modeling.  
-**Key Words**: intersection resolution, geometric predicates
-
+<!--
 ## Motivation
 
 <p style="text-align: justify;">
@@ -82,10 +80,11 @@ We extend our predicates by building on the existing foundation and further opti
 To efficiently deduplicate intersection points, we localize this process by sorting the intersection points along their respective edges or segments, rather than using a global map. This localization significantly reduces the sorting scale by several orders of magnitude and enhances the parallelism.
 Additionally, to reduces the number of calls to the computationally expensive predicates, we simplify the constrained triangulation by reducing it to a 2D problem through the projection of triangles onto an orthogonal plane, and further simplify the intersection location process and introduces a new property.
 </p>
+-->
 
 ## Results
 
-We test our algorithm on the Thingi10k dataset and one stress-testing dataset (constructed by rotating one models several times and combining all of them) to validate the robustness and efficiency of our algorithm. Compared with the state-of-the-art methods, the efficiency is improved by an order of magnitude.
+We test our algorithm on the Thingi10k dataset and one stress-testing dataset (constructed by rotating one models several times and combining all of them) to validate the robustness and efficiency of our algorithm. Compared with the state-of-the-art methods, the efficiency is improved by an order of magnitude. See details in our paper :).
 
 <figure style="width: 90%; text-align: center;">
   <img src="/images/2024-mesh-arrangements/Gallery.png" alt="Gallery">
