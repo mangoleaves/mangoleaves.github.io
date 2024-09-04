@@ -3,13 +3,13 @@ layout: default
 ---
 
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
+{% include page__hero.html %}
 {% endif %}
 
 {% if page.url != "/" and site.breadcrumbs %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
+{% unless paginator %}
+{% include breadcrumbs.html %}
+{% endunless %}
 {% endif %}
 
 <div id="main" role="main">
@@ -17,8 +17,109 @@ layout: default
 
   <div class="archive">
     {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 class="page__title">{{ page.title }}</h1>
+    <h1 class="page__title">{{ page.title }}</h1>
     {% endunless %}
     {{ content }}
   </div>
 </div>
+
+<!-- 提示框 -->
+<div id="copyTooltip"
+  style="display: none; position: absolute; background-color: #333; color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 12px;">
+  copied to clip board!
+</div>
+
+<script>
+  function copyToClipboard(event, text) {
+    // 创建一个临时的文本输入元素
+    var tempInput = document.createElement("input");
+    tempInput.style.position = "absolute";
+    tempInput.style.left = "-9999px";
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+
+    console.log("copy content: " + text)
+
+    // 选择并复制内容
+    tempInput.select();
+    document.execCommand("copy");
+
+    // 移除临时元素
+    document.body.removeChild(tempInput);
+
+    // 显示提示信息
+    showTooltip(event);
+  }
+
+  function showTooltip(event) {
+    var tooltip = document.getElementById("copyTooltip");
+
+    // 获取 tooltip 的尺寸
+    var tooltipWidth = tooltip.offsetWidth;
+    var tooltipHeight = tooltip.offsetHeight;
+
+    // 计算 tooltip 的位置
+    var tooltipX = event.pageX - (tooltipWidth / 2);
+    var tooltipY = event.pageY - tooltipHeight - 10; // 提示框在鼠标点击上方10px
+
+    // 设置 tooltip 的位置
+    tooltip.style.left = tooltipX + "px";
+    tooltip.style.top = tooltipY + "px";
+
+    tooltip.style.display = "block";
+
+    // 2秒后隐藏提示信息
+    setTimeout(function () {
+      tooltip.style.display = "none";
+    }, 2000);
+  }
+</script>
+
+<style>
+  button.copy-link {
+    text-decoration: underline;
+    color: #52adc8;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    position: relative;
+    /* 为了定位 tooltip */
+    box-sizing: border-box;
+  }
+
+  /* tooltip 的样式 */
+  button.copy-link::after {
+    content: "Click to copy";
+    /* tooltip 的文本内容 */
+    position: absolute;
+    bottom: 100%;
+    /* tooltip 显示在按钮的上方 */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    /* 默认隐藏 */
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  /* hover 时显示 tooltip */
+  button.copy-link:hover::after {
+    opacity: 0.9;
+    /* 显示 tooltip */
+  }
+
+  #copyTooltip {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0.9;
+  }
+</style>

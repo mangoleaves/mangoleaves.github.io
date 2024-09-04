@@ -100,6 +100,12 @@
       {% if post.video %}
       <a href="{{ post.video }}">Vedio</a>.
       {% endif %}
+      {% if post.reference %}
+      <button class="copy-link" onclick="copyToClipboard(event, '{{ post.reference }}')">Reference</button>.
+      {% endif %}
+      {% if post.bib %}
+      <button class="copy-link" onclick="copyToClipboard(event, '{{ post.bib }}')">Bib</button>.
+      {% endif %}
     </p>
 
     <!-- Read more information -->
@@ -107,8 +113,9 @@
     <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description">
-      {{ post.excerpt | markdownify | remove: ' <p>' | remove: '</p>' }}
-      <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
+      {{ post.excerpt | markdownify | remove: '
+    <p>' | remove: '</p>' }}
+    <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
     </p>
     {% endif %}
 
