@@ -12,7 +12,7 @@ redirect_from:
 **Position**: Ph.D. Student in Computer Graphics  
 **Institution**: University of Science and Technology of China  
 **Location**: Hefei, Anhui, China  
-**Supervisor**: [Xiao-Ming Fu](https://ustc-gcl-f.github.io/), [Renjie Chen](http://staff.ustc.edu.cn/~renjiec/)  
+**Supervisor**: [Xiao-Ming Fu](https://ustc-gcl-f.github.io/)
 **Contact**: <gjp171499@mail.ustc.edu.cn>  
 **Website**: <https://mangoleaves.github.io>  
 
