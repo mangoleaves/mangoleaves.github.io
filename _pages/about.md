@@ -12,7 +12,7 @@ redirect_from:
 **Position**: Ph.D. Student in Computer Graphics  
 **Institution**: University of Science and Technology of China  
 **Location**: Hefei, Anhui, China  
-**Supervisor**: [Xiao-Ming Fu](https://ustc-gcl-f.github.io/)
+**Supervisor**: [Xiao-Ming Fu](https://ustc-gcl-f.github.io/)  
 **Contact**: <gjp171499@mail.ustc.edu.cn>  
 **Website**: <https://mangoleaves.github.io>  
 
@@ -23,8 +23,8 @@ redirect_from:
 
 ## Research Interest
 
+Computer Graphics/CAD/CAE  
 Robust Mesh Generation and Processing  
-CAD/CAE  
 
 ## News
 
